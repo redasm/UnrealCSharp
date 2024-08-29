@@ -149,7 +149,7 @@ void FCodeAnalysis::Analysis()
 	                                    *FPaths::ConvertRelativePathToFull(
 		                                    FUnrealCSharpFunctionLibrary::GetCodeAnalysisPath()),
 	                                    *FPaths::ConvertRelativePathToFull(
-		                                    FUnrealCSharpFunctionLibrary::GetGameDirectory())
+		                                    FUnrealCSharpFunctionLibrary::GetNativeDirectory())
 	);
 
 	for (const auto& CustomProjectsDirectory : FUnrealCSharpFunctionLibrary::GetCustomProjectsDirectory())

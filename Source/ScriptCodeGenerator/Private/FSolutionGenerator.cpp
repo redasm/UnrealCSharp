@@ -50,7 +50,7 @@ void FSolutionGenerator::Generator()
 		});
 
 	CopyTemplate(
-		FPaths::Combine(FUnrealCSharpFunctionLibrary::GetGameDirectory() / FODY_WEAVERS_NAME + XML_SUFFIX),
+		FPaths::Combine(FUnrealCSharpFunctionLibrary::GetNativeDirectory() / FODY_WEAVERS_NAME + XML_SUFFIX),
 		ScriptPath / WEAVERS_NAME / FODY_WEAVERS_NAME + XML_SUFFIX);
 
 	CopyTemplate(
@@ -65,8 +65,8 @@ void FSolutionGenerator::Generator()
 		});
 
 	CopyTemplate(
-		FUnrealCSharpFunctionLibrary::GetGameProjectPath(),
-		TemplatePath / DEFAULT_GAME_NAME + PROJECT_SUFFIX,
+		FUnrealCSharpFunctionLibrary::GetNativeProjectPath(),
+		TemplatePath / DEFAULT_NATIVE_NAME + PROJECT_SUFFIX,
 		TArray<TFunction<void(FString& OutResult)>>
 		{
 			&FSolutionGenerator::ReplaceImport,
@@ -77,8 +77,8 @@ void FSolutionGenerator::Generator()
 		});
 
 	CopyTemplate(
-		FUnrealCSharpFunctionLibrary::GetGameProjectPropsPath(),
-		TemplatePath / DEFAULT_GAME_NAME + PROJECT_PROPS_SUFFIX);
+		FUnrealCSharpFunctionLibrary::GetNativeProjectPropsPath(),
+		TemplatePath / DEFAULT_NATIVE_NAME + PROJECT_PROPS_SUFFIX);
 
 	CopyTemplate(
 		FPaths::Combine(FUnrealCSharpFunctionLibrary::GetFullScriptDirectory(),
@@ -134,9 +134,9 @@ void FSolutionGenerator::ReplaceImport(FString& OutResult)
 	                              *FString::Printf(TEXT(
 		                              "<Import Project=\"%s%s\" Condition=\"Exists(\'%s%s\')\" />"
 	                              ),
-	                                               *FUnrealCSharpFunctionLibrary::GetGameName(),
+	                                               *FUnrealCSharpFunctionLibrary::GetNativeName(),
 	                                               *PROJECT_PROPS_SUFFIX,
-	                                               *FUnrealCSharpFunctionLibrary::GetGameName(),
+	                                               *FUnrealCSharpFunctionLibrary::GetNativeName(),
 	                                               *PROJECT_PROPS_SUFFIX
 	                              ));
 }
@@ -216,7 +216,7 @@ void FSolutionGenerator::ReplaceYield(FString& OutResult)
 		                              "\t\t\tyield return \"%s\";"
 	                              ),
 	                                               *FUnrealCSharpFunctionLibrary::GetUEName(),
-	                                               *FUnrealCSharpFunctionLibrary::GetGameName()
+	                                               *FUnrealCSharpFunctionLibrary::GetNativeName()
 	                              ));
 }
 
@@ -260,9 +260,9 @@ void FSolutionGenerator::ReplaceProject(FString& OutResult)
 		*FString::Printf(TEXT(
 			"Project(\"{9A19103F-16F7-4668-BE54-9A1E7A4F7556}\") = \"%s\", \"%s\\%s%s\", \"{A2B210E9-51AE-490B-8B87-F8492CB2A417}\""
 		),
-		                 *FUnrealCSharpFunctionLibrary::GetGameName(),
-		                 *FUnrealCSharpFunctionLibrary::GetGameName(),
-		                 *FUnrealCSharpFunctionLibrary::GetGameName(),
+		                 *FUnrealCSharpFunctionLibrary::GetNativeName(),
+		                 *FUnrealCSharpFunctionLibrary::GetNativeName(),
+		                 *FUnrealCSharpFunctionLibrary::GetNativeName(),
 		                 *PROJECT_SUFFIX
 		));
 }

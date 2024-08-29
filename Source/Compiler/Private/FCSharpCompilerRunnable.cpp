@@ -194,7 +194,7 @@ void FCSharpCompilerRunnable::Compile()
 	const auto CompileParam = FString::Printf(TEXT(
 		"publish \"%s\" --nologo -c Debug -o \"%s\""
 	),
-	                                          *FUnrealCSharpFunctionLibrary::GetGameProjectPath(),
+	                                          *FUnrealCSharpFunctionLibrary::GetNativeProjectPath(),
 	                                          *FUnrealCSharpFunctionLibrary::GetFullPublishDirectory()
 	);
 

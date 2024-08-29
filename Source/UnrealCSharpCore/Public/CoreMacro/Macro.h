@@ -10,7 +10,8 @@
 
 #define DEFAULT_UE_NAME FString(TEXT("UE"))
 
-#define DEFAULT_GAME_NAME FString(TEXT("Game"))
+#define DEFAULT_NATIVE_NAME FString(TEXT("Native"))
+
 
 #define CODE_ANALYSIS_NAME FString(TEXT("CodeAnalysis"))
 

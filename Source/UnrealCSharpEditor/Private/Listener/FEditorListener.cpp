@@ -134,7 +134,7 @@ void FEditorListener::OnBeginGenerator()
 {
 	auto& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
 
-	auto BindingPath = FPaths::Combine(FUnrealCSharpFunctionLibrary::GetGameProxyDirectory(),
+	auto BindingPath = FPaths::Combine(FUnrealCSharpFunctionLibrary::GetNativeProxyDirectory(),
 	                                   FUnrealCSharpFunctionLibrary::GetBindingDirectory());
 
 	if (PlatformFile.DirectoryExists(*BindingPath))

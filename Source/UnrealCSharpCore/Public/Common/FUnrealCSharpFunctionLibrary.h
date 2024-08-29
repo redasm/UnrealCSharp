@@ -60,16 +60,16 @@ public:
 	static FString GetUEProjectPath();
 #endif
 
-	static FString GetGameName();
+	static FString GetNativeName();
 
 #if WITH_EDITOR
-	static FString GetGameDirectory();
+	static FString GetNativeDirectory();
 
-	static FString GetGameProxyDirectory();
+	static FString GetNativeProxyDirectory();
 
-	static FString GetGameProjectPath();
+	static FString GetNativeProjectPath();
 
-	static FString GetGameProjectPropsPath();
+	static FString GetNativeProjectPropsPath();
 #endif
 
 #if WITH_EDITOR
@@ -98,7 +98,8 @@ public:
 
 	static FString GetFullUEPublishPath();
 
-	static FString GetFullGamePublishPath();
+	static FString GetFullNativePublishPath();
+
 
 	static TArray<FString> GetFullCustomProjectsPublishPath();
 

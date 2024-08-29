@@ -10,7 +10,7 @@ UUnrealCSharpSetting::UUnrealCSharpSetting(const FObjectInitializer& ObjectIniti
 	: Super(ObjectInitializer),
 	  PublishDirectory(DEFAULT_PUBLISH_DIRECTORY),
 	  UEName(DEFAULT_UE_NAME),
-	  GameName(DEFAULT_GAME_NAME),
+	  NativeName(DEFAULT_NATIVE_NAME),
 	  AssemblyLoader(UAssemblyLoader::StaticClass()),
 	  bEnableDebug(false),
 	  Port(0)
@@ -54,9 +54,9 @@ const FString& UUnrealCSharpSetting::GetUEName() const
 	return UEName;
 }
 
-const FString& UUnrealCSharpSetting::GetGameName() const
+const FString& UUnrealCSharpSetting::GetNativeName() const
 {
-	return GameName;
+	return NativeName;
 }
 
 const TArray<FCustomProject>& UUnrealCSharpSetting::GetCustomProjects() const

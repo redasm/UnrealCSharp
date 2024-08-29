@@ -23,41 +23,49 @@ void FClassGenerator::Generator(const UClass* InClass)
 {
 	if (InClass == nullptr)
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] InClass == nullptr, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (FDynamicClassGenerator::IsDynamicClass(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] Dynamic Class, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (FDynamicInterfaceGenerator::IsDynamicInterface(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] Dynamic Interface, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (Cast<UAnimBlueprintGeneratedClass>(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] UAnimBlueprintGeneratedClass, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (FGeneratorCore::IsSkip(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] Skip, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (!FGeneratorCore::IsSupported(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] Not Supported, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (FUnrealCSharpFunctionLibrary::IsSpecialClass(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] Special Class, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 
 	if (FUnrealCSharpFunctionLibrary::IsDynamicReInstanceField(InClass))
 	{
+		UE_LOG(LogTemp, Log, TEXT("[FClassGenerator::Generator] Dynamic ReInstance Field, ClassName : %s"), *InClass->GetName());
 		return;
 	}
 

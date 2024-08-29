@@ -415,34 +415,34 @@ FString FUnrealCSharpFunctionLibrary::GetUEProjectPath()
 }
 #endif
 
-FString FUnrealCSharpFunctionLibrary::GetGameName()
+FString FUnrealCSharpFunctionLibrary::GetNativeName()
 {
 	const auto UnrealCSharpSetting = GetMutableDefault<UUnrealCSharpSetting>();
 
 	return UnrealCSharpSetting->IsValidLowLevelFast()
-		       ? UnrealCSharpSetting->GetGameName()
-		       : DEFAULT_GAME_NAME;
+		       ? UnrealCSharpSetting->GetNativeName()
+		       : DEFAULT_NATIVE_NAME;
 }
 
 #if WITH_EDITOR
-FString FUnrealCSharpFunctionLibrary::GetGameDirectory()
+FString FUnrealCSharpFunctionLibrary::GetNativeDirectory()
 {
-	return GetFullScriptDirectory() / GetGameName();
+	return GetFullScriptDirectory() / GetNativeName();
 }
 
-FString FUnrealCSharpFunctionLibrary::GetGameProxyDirectory()
+FString FUnrealCSharpFunctionLibrary::GetNativeProxyDirectory()
 {
-	return GetGameDirectory() / PROXY_NAME;
+	return GetNativeDirectory() / PROXY_NAME;
 }
 
-FString FUnrealCSharpFunctionLibrary::GetGameProjectPath()
+FString FUnrealCSharpFunctionLibrary::GetNativeProjectPath()
 {
-	return GetGameDirectory() / GetGameName() + PROJECT_SUFFIX;
+	return GetNativeDirectory() / GetNativeName() + PROJECT_SUFFIX;
 }
 
-FString FUnrealCSharpFunctionLibrary::GetGameProjectPropsPath()
+FString FUnrealCSharpFunctionLibrary::GetNativeProjectPropsPath()
 {
-	return GetGameDirectory() / GetGameName() + PROJECT_PROPS_SUFFIX;
+	return GetNativeDirectory() / GetNativeName() + PROJECT_PROPS_SUFFIX;
 }
 #endif
 
@@ -529,9 +529,9 @@ FString FUnrealCSharpFunctionLibrary::GetGenerationPath(const FString& InScriptP
 		(Splits[0] == NAMESPACE_SCRIPT &&
 			ProjectModuleList.Contains(Splits[1])))
 	{
-		static auto GameProxyPath = GetGameProxyDirectory();
+		static auto NativeProxyPath = GetNativeProxyDirectory();
 
-		return GameProxyPath;
+		return NativeProxyPath;
 	}
 	else
 	{
@@ -561,9 +561,9 @@ FString FUnrealCSharpFunctionLibrary::GetFullUEPublishPath()
 	return GetFullPublishDirectory() / GetUEName() + DLL_SUFFIX;
 }
 
-FString FUnrealCSharpFunctionLibrary::GetFullGamePublishPath()
+FString FUnrealCSharpFunctionLibrary::GetFullNativePublishPath()
 {
-	return GetFullPublishDirectory() / GetGameName() + DLL_SUFFIX;
+	return GetFullPublishDirectory() / GetNativeName() + DLL_SUFFIX;
 }
 
 TArray<FString> FUnrealCSharpFunctionLibrary::GetFullCustomProjectsPublishPath()
@@ -586,7 +586,7 @@ TArray<FString> FUnrealCSharpFunctionLibrary::GetFullAssemblyPublishPath()
 {
 	return TArrayBuilder<FString>().
 	       Add(GetFullUEPublishPath()).
-	       Add(GetFullGamePublishPath()).
+	       Add(GetFullNativePublishPath()).
 	       Append(GetFullCustomProjectsPublishPath()).
 	       Build();
 }
@@ -722,7 +722,7 @@ TArray<FString> FUnrealCSharpFunctionLibrary::GetChangedDirectories()
 {
 	return TArrayBuilder<FString>().
 	       Add(GetPluginScriptDirectory() / DEFAULT_UE_NAME).
-	       Add(GetGameDirectory()).
+	       Add(GetNativeDirectory()).
 	       Append(GetCustomProjectsDirectory()).
 	       Build();
 }

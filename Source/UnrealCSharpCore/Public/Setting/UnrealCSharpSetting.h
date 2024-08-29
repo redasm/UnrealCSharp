@@ -64,7 +64,7 @@ public:
 
 	const FString& GetUEName() const;
 
-	const FString& GetGameName() const;
+	const FString& GetNativeName() const;
 
 	const TArray<FCustomProject>& GetCustomProjects() const;
 
@@ -85,8 +85,8 @@ private:
 	UPROPERTY(Config, EditAnywhere, Category = Publish, meta = (DisplayName = "UE Name"))
 	FString UEName;
 
-	UPROPERTY(Config, EditAnywhere, Category = Publish, meta = (DisplayName = "Game Name"))
-	FString GameName;
+	UPROPERTY(Config, EditAnywhere, Category = Publish, meta = (DisplayName = "Native Name"))
+	FString NativeName;
 
 	UPROPERTY(Config, EditAnywhere, Category = Publish)
 	TArray<FCustomProject> CustomProjects;
