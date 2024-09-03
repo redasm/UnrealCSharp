@@ -26,5 +26,5 @@ namespace
 		}
 	};
 
-	[[maybe_unused]] FRegisterWidget RegisterClass;
+	[[maybe_unused]] FRegisterWidget RegisterWidget;
 }
