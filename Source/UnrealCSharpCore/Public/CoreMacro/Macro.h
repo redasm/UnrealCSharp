@@ -12,6 +12,9 @@
 
 #define DEFAULT_NATIVE_NAME FString(TEXT("Native"))
 
+#define DEFAULT_OVERRIDE_FUNCTION_NAME_PREFIX FString(TEXT(""))
+
+#define DEFAULT_OVERRIDE_FUNCTION_NAME_SUFFIX FString(TEXT("_Override"))
 
 #define CODE_ANALYSIS_NAME FString(TEXT("CodeAnalysis"))
 
