@@ -296,7 +296,7 @@ void FClassGenerator::Generator(const UClass* InClass)
 	                                                EFieldIteratorFlags::ExcludeDeprecated); FunctionIterator; ++
 	     FunctionIterator)
 	{
-		if (!FunctionIterator->HasAnyFunctionFlags(FUNC_AccessSpecifiers))
+		if (!FunctionIterator->HasAnyFunctionFlags(FUNC_AccessSpecifiers | FUNC_BlueprintEvent))
 		{
 			continue;
 		}
